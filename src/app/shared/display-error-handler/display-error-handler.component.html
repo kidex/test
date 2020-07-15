@@ -1,0 +1,8 @@
+<ng-container *ngIf="inputFormControl && inputFormControl.errors && inputFormControl.touched">
+  <mat-error *ngIf="inputFormControl.errors.required">Required</mat-error>
+  <mat-error *ngIf="inputFormControl.errors.min">Number must be greater than 0</mat-error>
+  <mat-error *ngIf="inputFormControl.errors.minlength">Field must be at least 3 characters long</mat-error>
+  <mat-error *ngIf="inputFormControl.errors.maxlength">Field must have maximum 3 characters</mat-error>
+  <mat-error *ngIf="inputFormControl.errors.pattern">Field must contain only digits</mat-error>
+  <mat-error *ngIf="inputFormControl.errors.matDatepickerMin">Date could not be in the past</mat-error>
+</ng-container>

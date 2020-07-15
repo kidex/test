@@ -1,0 +1,31 @@
+<form *ngIf="paymentForm"
+      [formGroup]="paymentForm"
+      (ngSubmit)="doPayment()"
+>
+  <mat-form-field class="d-block w-100">
+    <input matInput formControlName="creditCardNumber" placeholder="Credit Card Number"/>
+    <app-display-error-handler [inputFormControl]="paymentForm.get('creditCardNumber')"></app-display-error-handler>
+  </mat-form-field>
+  <mat-form-field class="d-block w-100">
+    <input matInput formControlName="cardHolder" placeholder="Card Holder"/>
+    <app-display-error-handler [inputFormControl]="paymentForm.get('cardHolder')"></app-display-error-handler>
+  </mat-form-field>
+  <mat-form-field class="d-block w-100">
+    <mat-label>Expiration date</mat-label>
+    <input matInput [matDatepicker]="expirationDate" formControlName="expirationDate" [min]="minDate" readonly>
+    <mat-datepicker-toggle matSuffix [for]="expirationDate"></mat-datepicker-toggle>
+    <mat-datepicker #expirationDate></mat-datepicker>
+    <app-display-error-handler [inputFormControl]="paymentForm.get('expirationDate')"></app-display-error-handler>
+  </mat-form-field>
+  <mat-form-field class="d-block w-100">
+    <input matInput formControlName="securityCode" placeholder="Security code"/>
+    <app-display-error-handler [inputFormControl]="paymentForm.get('securityCode')"></app-display-error-handler>
+  </mat-form-field>
+  <mat-form-field class="d-block w-100">
+    <input matInput formControlName="amount" type="number" placeholder="Amount"/>
+    <app-display-error-handler [inputFormControl]="paymentForm.get('amount')"></app-display-error-handler>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit" [disabled]="!paymentForm.valid">Pay</button>
+</form>
+

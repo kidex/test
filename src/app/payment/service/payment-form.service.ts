@@ -15,7 +15,7 @@ export class PaymentFormService {
       cardHolder: ['', [Validators.required]],
       expirationDate: ['', [Validators.required]],
       securityCode: ['', [Validators.minLength(3), Validators.maxLength(3), Validators.pattern(/^-?(0|[1-9]\d*)?$/)]],
-      amount: ['', [Validators.required, Validators.min(0)]]
+      amount: ['', [Validators.required, Validators.min(1)]]
     });
   }
 }
